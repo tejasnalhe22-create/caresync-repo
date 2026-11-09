@@ -34,6 +34,8 @@
 			{
 				"name": "set start time",
 				"type": "SetVariable",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"secureOutput": false,
@@ -43,7 +45,7 @@
 				"typeProperties": {
 					"variableName": "start_time",
 					"value": {
-						"value": "@utcNow()",
+						"value": "@formatDateTime(utcNow(),'yyyy-MM-dd_hh:mm:ss')",
 						"type": "Expression"
 					}
 				}
