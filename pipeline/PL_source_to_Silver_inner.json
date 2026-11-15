@@ -53,7 +53,7 @@
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
-						"activity": "Switch1",
+						"activity": "Switch source system",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -80,6 +80,10 @@
 						},
 						"table_name": {
 							"value": "@activity('Lookup1').output.firstRow.bronze_table_name",
+							"type": "Expression"
+						},
+						"source_file_format": {
+							"value": "@coalesce(activity('Lookup1').output.firstRow.source_file_format,'')",
 							"type": "Expression"
 						}
 					}
@@ -300,7 +304,7 @@
 				}
 			},
 			{
-				"name": "Switch1",
+				"name": "Switch source system",
 				"type": "Switch",
 				"dependsOn": [
 					{
